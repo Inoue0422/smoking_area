@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'smokings/index'
-  root 'smokings#index'
+  get 'spots/index'
+  root 'spots#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
