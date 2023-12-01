@@ -1,24 +1,39 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Colum              | Type   | Option                    |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :spots, through: :user_spots
 
-* Configuration
+## spotsテーブル
 
-* Database creation
+| Colum      | Type    | Option      |
+| ---------- | ------- | ----------- |
+| name       | string  | null: false |
+| tobacco_id | integer | null: false |
+| fence      | boolean | null: false |
+| roof       | boolean | null: false |
+| chair      | boolean | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :users, through: :user_spots
 
-* Services (job queues, cache servers, search engines, etc.)
+## user_spotsテーブル
 
-* Deployment instructions
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| spot   | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :spot
