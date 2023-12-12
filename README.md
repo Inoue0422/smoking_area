@@ -21,6 +21,8 @@
 | fence      | boolean | null: false |
 | roof       | boolean | null: false |
 | chair      | boolean | null: false |
+| latitude   | float   | null: false |
+| longitude  | float   | null: false |
 
 ### Association
 
