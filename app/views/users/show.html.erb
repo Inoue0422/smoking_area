@@ -1,0 +1,16 @@
+<%= render "shared/header" %>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 75vh;">
+  <div>
+    <h1 class="text-center mb-5 fw-bold fst-italic">マイページ</h1>
+    <div class="text-center">
+      <h3 class="fst-italic">Nick name</h3>
+      <p class="fw-lighter"><%= @user.nickname %></p>
+      <h3 class="fst-italic">Email address</h3>
+      <p class="fw-lighter"><%= @user.email %></p>
+      <%= link_to '編集', edit_user_registration_path, class: 'btn btn-danger mt-5' %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
