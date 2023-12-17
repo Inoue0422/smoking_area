@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+
+<%= form_with model: @spot, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :tobacco_id %>
+  <%= form.number_field :tobacco_id %>
+
+  <%= form.label :fence %>
+  <%= form.check_box :fence %>
+
+  <%= form.label :roof %>
+  <%= form.check_box :roof %>
+
+  <%= form.label :chair %>
+  <%= form.check_box :chair %>
+
+  <%= form.label :latitude %>
+  <%= form.text_field :latitude %>
+
+  <%= form.label :longitude %>
+  <%= form.text_field :longitude %>
+
+  <%= form.submit "投稿する" %>
+<% end %>
+
+<%= render "shared/footer" %>
