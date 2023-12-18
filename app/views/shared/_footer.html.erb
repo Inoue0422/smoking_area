@@ -6,7 +6,17 @@
           <i class="bi bi-house-door-fill" style="font-size: 1rem;"></i>ホーム
         <% end %>
       </li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-light d-flex flex-column align-items-center fst-italic"><i class="bi bi-search" style="font-size: 1rem;"></i>検索</a></li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to spot_path(current_user), class: 'nav-link px-2 text-light d-flex flex-column align-items-center fst-italic' do %>
+            <i class="bi bi-search" style="font-size: 1rem;"></i>検索
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: 'nav-link px-2 text-light d-flex flex-column align-items-center fst-italic' do %>
+            <i class="bi bi-search" style="font-size: 1rem;"></i>検索
+          <% end %>
+        <% end %>
+      </li>
       <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to user_path(current_user), class: 'nav-link px-2 text-light d-flex flex-column align-items-center fst-italic' do %>
@@ -18,7 +28,17 @@
           <% end %>
         <% end %>
       </li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-light d-flex flex-column align-items-center fst-italic"><i class="bi bi-journal-plus" style="font-size: 1rem"></i>投稿</a></li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to new_spot_path, class: 'nav-link px-2 text-light d-flex flex-column align-items-center fst-italic' do %>
+            <i class="bi bi-journal-plus" style="font-size: 1rem;"></i>投稿
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: 'nav-link px-2 text-light d-flex flex-column align-items-center fst-italic' do %>
+            <i class="bi bi-journal-plus" style="font-size: 1rem;"></i>投稿
+          <% end %>
+        <% end %>
+      </li>
     </ul>
   </footer>
 </div>
