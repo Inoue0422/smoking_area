@@ -28,7 +28,7 @@ https://smoking-area.onrender.com
 現在喫煙所投稿機能を実装中
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/db997d6b47fb65afe050841b34948ef9.png)](https://gyazo.com/db997d6b47fb65afe050841b34948ef9)
+[![Image from Gyazo](https://i.gyazo.com/dc0c8b040f9fb32840774a465acdb782.png)](https://gyazo.com/dc0c8b040f9fb32840774a465acdb782)
 
 # 開発環境
 Ruby on rails7
