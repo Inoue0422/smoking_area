@@ -9,7 +9,7 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
   
-  def cteate
+  def create
     @spot = Spot.new(spot_params)
     if @spot.save
       redirect_to root_path
@@ -21,6 +21,6 @@ class SpotsController < ApplicationController
     private
 
     def spot_params
-      params.require(:spot).permit(:name, :tobacco_id, :fence, :roof, :chair, :latitude, :longitude)
+      params.require(:spot).permit(:name, :tobacco_id, :fence, :roof, :chair, :address, :latitude, :longitude)
     end
 end

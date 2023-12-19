@@ -1,28 +1,75 @@
 <%= render "shared/header" %>
 
 <%= form_with model: @spot, local: true do |form| %>
-  <%= form.label :name %>
+  <%= form.label :喫煙所名前 %>
   <%= form.text_field :name %>
 
-  <%= form.label :tobacco_id %>
-  <%= form.number_field :tobacco_id %>
+  <%= form.label :タバコの種類 %>
+  <%= form.collection_select :tobacco_id, TobaccoType.all, :id, :name, include_blank: "選択してください" %>
 
-  <%= form.label :fence %>
+  <%= form.label :囲い %>
   <%= form.check_box :fence %>
 
-  <%= form.label :roof %>
+  <%= form.label :屋根 %>
   <%= form.check_box :roof %>
 
-  <%= form.label :chair %>
+  <%= form.label :椅子 %>
   <%= form.check_box :chair %>
 
+  <%= form.label :住所 %>
+  <%= form.text_field :address %>
+
   <%= form.label :latitude %>
-  <%= form.text_field :latitude %>
+  <%= form.text_field :latitude, id: 'spot_latitude' %>
 
   <%= form.label :longitude %>
-  <%= form.text_field :longitude %>
+  <%= form.text_field :longitude, id: 'spot_longitude' %>
 
   <%= form.submit "投稿する" %>
 <% end %>
+
+<div id="map" style="height: 400px; width: 100%;"></div>
+
+<script>
+  function handleLocationError(browserHasGeolocation, pos) {
+    console.log(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.');
+  }
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15
+    });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: map,
+          draggable: true
+        });
+
+        map.setCenter(pos);
+
+        google.maps.event.addListener(marker, 'dragend', function() {
+          document.getElementById('spot_latitude').value = marker.getPosition().lat();
+          document.getElementById('spot_longitude').value = marker.getPosition().lng();
+        });
+      }, function() {
+        handleLocationError(true, map.getCenter());
+      });
+    } else {
+      handleLocationError(false, map.getCenter());
+    }
+  }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
 
 <%= render "shared/footer" %>
