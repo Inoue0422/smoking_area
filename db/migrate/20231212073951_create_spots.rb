@@ -3,9 +3,9 @@ class CreateSpots < ActiveRecord::Migration[7.0]
     create_table :spots do |t|
       t.string :name,        null: false
       t.integer :tobacco_id, null: false
-      t.boolean :fence,      null: false
-      t.boolean :roof,       null: false
-      t.boolean :chair,      null: false
+      t.boolean :fence
+      t.boolean :roof
+      t.boolean :chair
       t.string :address
       t.float :latitude
       t.float :longitude

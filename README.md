@@ -53,11 +53,12 @@ Ruby on rails7
 | ---------- | ------- | ----------- |
 | name       | string  | null: false |
 | tobacco_id | integer | null: false |
-| fence      | boolean | null: false |
-| roof       | boolean | null: false |
-| chair      | boolean | null: false |
-| latitude   | float   | null: false |
-| longitude  | float   | null: false |
+| fence      | boolean |             |
+| roof       | boolean |             |
+| chair      | boolean |             |
+| address    | string  |             |
+| latitude   | float   |             |
+| longitude  | float   |             |
 
 ### Association
 

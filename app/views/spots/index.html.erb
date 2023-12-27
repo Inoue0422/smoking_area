@@ -2,44 +2,68 @@
 
 <div id="map" style="height: 100%; width: 100%;"></div>
 
+<%= render "shared/footer" %>
+
 <script>
-function initMap() {
-  // マップの初期化
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15
-  });
+  var currentLocationMarker = null;
 
-  // ブラウザのGeolocation APIを使用してユーザーの現在地を取得
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      // マップにマーカーを設置
-      var marker = new google.maps.Marker({
-        position: pos,
-        map: map
-      });
-
-      // マップの中心をユーザーの現在地に設定
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, map.getCenter());
-    });
-  } else {
-    // ブラウザがGeolocationをサポートしていない場合
-    handleLocationError(false, map.getCenter());
+  function handleLocationError(browserHasGeolocation, pos) {
+    console.log(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.');
   }
-}
 
-function handleLocationError(browserHasGeolocation, pos) {
-  // エラーハンドリング（ユーザーの位置情報取得ができない場合など）
-  console.log('Error: The Geolocation service failed.');
-}
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15
+    });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        var currentLocationIcon = {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 7,
+          fillColor: '#4285F4', // 青色
+          fillOpacity: 1,
+          strokeWeight: 2,
+          strokeColor: 'white'
+        };
+
+        if (!currentLocationMarker) {
+          currentLocationMarker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            icon: currentLocationIcon
+          });
+        } else {
+          currentLocationMarker.setPosition(pos);
+        }
+
+        map.setCenter(pos);
+
+        <% @spots.each do |spot| %>
+          var spotPos = { lat: <%= spot.latitude %>, lng: <%= spot.longitude %> };
+          var spotMarker = new google.maps.Marker({
+            position: spotPos,
+            map: map
+          });
+        <% end %>
+      }, function() {
+        handleLocationError(true, map.getCenter());
+      }, {
+        maximumAge: 10000,
+        timeout: 5000,
+        enableHighAccuracy: true
+      });
+    } else {
+      handleLocationError(false, map.getCenter());
+    }
+  }
 </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"></script>
-
-<%= render "shared/footer" %>

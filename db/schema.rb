@@ -14,9 +14,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_12_083230) do
   create_table "spots", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "tobacco_id", null: false
-    t.boolean "fence", null: false
-    t.boolean "roof", null: false
-    t.boolean "chair", null: false
+    t.boolean "fence"
+    t.boolean "roof"
+    t.boolean "chair"
     t.string "address"
     t.float "latitude"
     t.float "longitude"

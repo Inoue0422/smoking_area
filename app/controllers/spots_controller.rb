@@ -1,5 +1,6 @@
 class SpotsController < ApplicationController
   def index
+    @spots = Spot.all
   end
   
   def show
@@ -14,6 +15,7 @@ class SpotsController < ApplicationController
     if @spot.save
       redirect_to root_path
     else
+      puts "エラー：", @spot.errors.full_messages
       render :new
     end
   end
