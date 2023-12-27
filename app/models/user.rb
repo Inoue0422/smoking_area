@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   
   has_many :spots, through: :user_spots
+  has_many :user_spots
 end
