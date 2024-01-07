@@ -14,7 +14,6 @@
   }
 
   function initMap() {
-    console.log("initMap executed");
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15
     });
@@ -52,6 +51,11 @@
           var spotMarker = new google.maps.Marker({
             position: spotPos,
             map: map
+          });
+
+          // 追加する部分: マーカーにクリックイベントを追加
+          spotMarker.addListener('click', function() {
+            window.location.href = '<%= spot_path(spot) %>';
           });
         <% end %>
       }, function() {
