@@ -6,7 +6,6 @@ class CreateSpots < ActiveRecord::Migration[7.0]
       t.boolean :fence
       t.boolean :roof
       t.boolean :chair
-      t.string :address
       t.float :latitude
       t.float :longitude
       t.timestamps

@@ -4,13 +4,12 @@
   <div class="row justify-content-center mt-5">
     <div class="col-md-8 text-center">
   <h2><%= @spot.name %></h2>
-  <p class="mt-4"><strong>タバコの種類:</strong> <%= TobaccoType.find_by(id: @spot.tobacco_id).name %></p>
-  <p class="mt-4"><strong>囲い:</strong> <%= @spot.fence ? 'あり' : 'なし' %></p>
-  <p class="mt-4"><strong>屋根:</strong> <%= @spot.roof ? 'あり' : 'なし' %></p>
-  <p class="mt-4"><strong>椅子:</strong> <%= @spot.chair ? 'あり' : 'なし' %></p>
-  <p class="mt-4"><strong>住所:</strong> <%= @spot.address %></p>
-  <p class="mt-4"><strong>緯度:</strong> <%= @spot.latitude %></p>
-  <p class="mt-4"><strong>経度:</strong> <%= @spot.longitude %></p>
+  <p class="mt-5"><strong>タバコの種類:</strong> <%= TobaccoType.find_by(id: @spot.tobacco_id).name %></p>
+  <p class="mt-5"><strong>囲い:</strong> <%= @spot.fence ? 'あり' : 'なし' %></p>
+  <p class="mt-5"><strong>屋根:</strong> <%= @spot.roof ? 'あり' : 'なし' %></p>
+  <p class="mt-5"><strong>椅子:</strong> <%= @spot.chair ? 'あり' : 'なし' %></p>
+  <p class="mt-5"><strong>緯度:</strong> <%= @spot.latitude %></p>
+  <p class="mt-5"><strong>経度:</strong> <%= @spot.longitude %></p>
 
   <%= link_to '編集', edit_spot_path(@spot), class: 'btn btn-danger me-md-2 fst-italic mt-5' %> 
   <%= link_to '削除', @spot, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger me-md-2 fst-italic mt-5' %>

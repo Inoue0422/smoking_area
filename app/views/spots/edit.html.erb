@@ -29,15 +29,10 @@
       <%= form.check_box :chair, class: 'form-check-input' %>
     </div>
 
-    <div class="mb-2">
-      <%= form.label :address, "住所" %>
-      <%= form.text_field :address, class: 'form-control' %>
-    </div>
-
     <%= form.hidden_field :latitude, id: 'spot_latitude' %>
     <%= form.hidden_field :longitude, id: 'spot_longitude' %>
 
-     <div id="map" style="height: 240px; width: 100%;"></div>
+     <div id="map" style="height: 300px; width: 100%;"></div>
 
     <!-- JavaScriptでマップを初期化し、編集用のピンを設置 -->
     <script>
