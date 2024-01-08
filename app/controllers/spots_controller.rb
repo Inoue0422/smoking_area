@@ -12,6 +12,7 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     if @spot.save
+      current_user.spots << @spot
       redirect_to @spot, notice: '喫煙所が作成されました。'
     else
       render :new

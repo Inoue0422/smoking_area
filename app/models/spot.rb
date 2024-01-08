@@ -4,6 +4,6 @@ class Spot < ApplicationRecord
   validates :latitude, presence: true
   validates :longitude, presence: true
 
-  has_many :users, through: :user_spots
   has_many :user_spots
+  has_many :users, through: :user_spots
 end
