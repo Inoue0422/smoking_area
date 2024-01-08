@@ -8,7 +8,7 @@ class SpotsController < ApplicationController
   def new
     @spot = Spot.new
   end
-  
+
   def create
     @spot = Spot.new(spot_params)
     if @spot.save
@@ -36,7 +36,7 @@ class SpotsController < ApplicationController
     @spot.destroy
     redirect_to spots_url, notice: '喫煙所が削除されました。'
   end
-  
+
   private
 
   def set_spot
