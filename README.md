@@ -56,7 +56,6 @@ Ruby on rails7
 | fence      | boolean |             |
 | roof       | boolean |             |
 | chair      | boolean |             |
-| address    | string  |             |
 | latitude   | float   |             |
 | longitude  | float   |             |
 
