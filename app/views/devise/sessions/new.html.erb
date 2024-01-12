@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<body class="sign-in-page">
+<body class="sign-in-page" style="padding-bottom: 50px;">
   <main class="form-signin w-100 m-auto">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
