@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="text-center mt-4">
+<div class="text-center" mt-4 style="padding-bottom: 80px;">
   <h1 class="fst-italic fw-bold"><%= @user.nickname %>さんの編集ページ</h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
