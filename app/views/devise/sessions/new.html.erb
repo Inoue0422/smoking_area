@@ -2,9 +2,12 @@
 
 <body class="sign-in-page" style="padding-bottom: 80px;">
   <main class="form-signin w-100 m-auto">
+  <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+  </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-
+    
       <img class="mb-4" src="/24211327.jpg" alt="" width="72" height="57">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 

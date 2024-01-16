@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+      spot:
+        name: 喫煙所名前
+        tobacco_id: タバコの種類
+        latitude: 緯度(下記マップ上でピンを指す)
+        llongitude: 経度(下記マップ上でピンを指す)
+

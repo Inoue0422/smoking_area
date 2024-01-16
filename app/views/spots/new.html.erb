@@ -4,6 +4,7 @@
   <h1 class="text-center fst-italic fw-bold">喫煙所新規投稿</h1>
 
   <%= form_with model: @spot, local: true do |form| %>
+    <%= render 'layouts/error_messages', model: form.object %>
     <div class="mb-2">
       <%= form.label :name, "喫煙所名前" %>
       <%= form.text_field :name, class: 'form-control' %>

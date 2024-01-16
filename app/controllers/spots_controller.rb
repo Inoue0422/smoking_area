@@ -15,7 +15,7 @@ class SpotsController < ApplicationController
       current_user.spots << @spot
       redirect_to @spot, notice: '喫煙所が作成されました。'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class SpotsController < ApplicationController
     if @spot.update(spot_params)
       redirect_to @spot, notice: '喫煙所が作成されました。'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
