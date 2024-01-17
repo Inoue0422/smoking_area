@@ -22,22 +22,22 @@ RSpec.describe Spot, type: :model do
       it '喫煙所名前がないと投稿できない' do
         @spot.name = ''
         @spot.valid?
-        expect(@spot.errors.full_messages).to include("Name can't be blank")
+        expect(@spot.errors.full_messages).to include("喫煙所名前を入力してください")
       end
       it 'タバコの種類がないと喫煙所投稿できない' do
         @spot.tobacco_id = ''
         @spot.valid?
-        expect(@spot.errors.full_messages).to include("Tobacco can't be blank")
+        expect(@spot.errors.full_messages).to include("タバコの種類を入力してください")
       end
       it '緯度がないと喫煙所投稿ができない' do
         @spot.latitude = ''
         @spot.valid?
-        expect(@spot.errors.full_messages).to include("Latitude can't be blank")
+        expect(@spot.errors.full_messages).to include("緯度(下記マップ上でピンを指す)を入力してください")
       end
       it '軽度がないと喫煙所投稿ができない' do
         @spot.longitude = ''
         @spot.valid?
-        expect(@spot.errors.full_messages).to include("Longitude can't be blank")
+        expect(@spot.errors.full_messages).to include("経度(下記マップ上でピンを指す)を入力してください")
       end
     end
   end
