@@ -1,7 +1,11 @@
 <%= render "shared/header" %>
 
 <div class="container mt-3" style="padding-bottom: 80px;">
-  <h1 class="text-center fst-italic fw-bold">喫煙所新規投稿</h1>
+  <div class="d-flex justify-content-center align-items-center">
+    <img src="/tobacco.jpg" class="rounded img-size" alt="タバコイラスト">
+    <h1 class="text-center fst-italic fw-bold mx-3">喫煙所新規投稿</h1>
+    <img src="/tobacco.jpg" class="rounded img-size" alt="タバコイラスト">
+  </div>
 
   <%= form_with model: @spot, local: true do |form| %>
     <%= render 'layouts/error_messages', model: form.object %>
@@ -36,7 +40,7 @@
     <div id="map" style="height: 300px; width: 100%;"></div>
 
     <div class="d-flex justify-content-center">
-      <%= form.submit "投稿する", class: 'btn btn-danger me-md-2 fst-italic mt-3' %>
+      <%= form.submit "投稿する", class: 'btn btn-secondary me-md-2 fst-italic mt-3' %>
     </div>
   <% end %>
 </div>

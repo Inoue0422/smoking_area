@@ -1,7 +1,12 @@
 <%= render "shared/header" %>
 
 <div class="text-center" mt-4 style="padding-bottom: 80px;">
-  <h1 class="fst-italic fw-bold"><%= @user.nickname %>さんの編集ページ</h1>
+  <div class="d-flex justify-content-center align-items-center">
+    <img src="/tobacco.jpg" class="rounded img-size" alt="タバコイラスト">
+    <h2 class="fst-italic fw-bold mx-3"><%= @user.nickname %>さんの編集ページ</h2>
+    <img src="/tobacco.jpg" class="rounded img-size" alt="タバコイラスト">
+  </div>
+
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -40,11 +45,11 @@
     </div>
 
     <div class="actions mt-4">
-      <%= f.submit "更新する", class: 'btn btn-danger me-md-2 fst-italic mt-3' %>
+      <%= f.submit "更新する", class: 'btn btn-secondary me-md-2 fst-italic mt-3' %>
     </div>
   <% end %>
 
-  <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: 'btn btn-danger me-md-2 fst-italic mt-5' %>
+  <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: 'btn btn-secondary me-md-2 fst-italic mt-5' %>
 
 </div>
 <%= render "shared/footer" %>

@@ -11,9 +11,9 @@
   <p class="mt-5"><strong>緯度:</strong> <%= @spot.latitude %></p>
   <p class="mt-5"><strong>経度:</strong> <%= @spot.longitude %></p>
 
-  <%= link_to '編集', edit_spot_path(@spot), class: 'btn btn-danger me-md-2 fst-italic mt-5' %> 
-  <%= link_to '削除', @spot, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger me-md-2 fst-italic mt-5' %>
-  <%= link_to '一覧に戻る', spots_path, class: 'btn btn-danger me-md-2 fst-italic mt-5' %>
+  <%= link_to '編集', edit_spot_path(@spot), class: 'btn btn-secondary me-md-2 fst-italic mt-5' %> 
+  <%= link_to '削除', @spot, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-secondary me-md-2 fst-italic mt-5' %>
+  <%= link_to '一覧に戻る', spots_path, class: 'btn btn-secondary me-md-2 fst-italic mt-5' %>
     </div>
   </div>
 </div>
