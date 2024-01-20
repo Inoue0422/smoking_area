@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
 
-<body class="sign-in-page" style="padding-bottom: 80px;">
+<body class="sign-in-page" style="padding-bottom: 100px;">
   <main class="form-signin w-100 m-auto">
-  <div class='login-flash-message'>
+  <div class='login-flash-message custom-error-messages'>
       <%= flash[:notice] %>
       <%= flash[:alert] %>
   </div>
@@ -13,7 +13,7 @@
 
       <div class="form-floating">
         <%= f.email_field :email, autofocus: true, class: 'form-control', id: 'floatingInput', placeholder: 'Email address'%>
-        <%= f.label :email, 'Eメールアドレス', class: 'floatingInput' %>
+        <%= f.label :email, 'メールアドレス', class: 'floatingInput' %>
       </div>
 
       <div class="form-floating">
