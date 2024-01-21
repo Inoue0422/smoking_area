@@ -8,9 +8,9 @@ smoking_area
 https://smoking-area.onrender.com
 
 # テスト用アカウント
-・Basic認証パスワード:2222
-・Basic認証ID:admin
-・メールアドレス：：sample@sample.com
+・Basic認証ID:admin</br>
+・Basic認証パスワード:2222</br>
+・メールアドレス：：sample@sample.com</br>
 ・パスワード:111111
 
 # 利用方法
@@ -57,6 +57,7 @@ https://smoking-area.onrender.com
 
 ### Association
 
+- has_many :user_spots
 - has_many :spots, through: :user_spots
 
 ## spotsテーブル
@@ -68,11 +69,12 @@ https://smoking-area.onrender.com
 | fence      | boolean |             |
 | roof       | boolean |             |
 | chair      | boolean |             |
-| latitude   | float   |             |
-| longitude  | float   |             |
+| latitude   | float   | null: false |
+| longitude  | float   | null: false |
 
 ### Association
 
+- has_many :user_spots
 - has_many :users, through: :user_spots
 
 ## user_spotsテーブル

@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
+        email: メールアドレス
       spot:
         name: 喫煙所名前
         tobacco_id: タバコの種類

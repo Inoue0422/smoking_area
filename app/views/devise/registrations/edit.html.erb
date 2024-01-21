@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="text-center" mt-4 style="padding-bottom: 100px;">
+<div class="text-center mt-4" style="padding-bottom: 100px;">
   <div class="d-flex justify-content-center align-items-center">
     <img src="/tobacco.jpg" class="rounded img-size" alt="タバコイラスト">
     <h2 class="fst-italic fw-bold mx-3"><%= @user.nickname %>さんの編集ページ</h2>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="field mt-4">
-      <%= f.label :current_password, "現在のパスワード（変更を確認するため）" %><br />
+      <%= f.label :current_password, "現在のパスワード" %><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
