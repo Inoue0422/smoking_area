@@ -34,6 +34,11 @@
       <%= form.check_box :chair, class: 'form-check-input' %>
     </div>
 
+    <div class="mb-3">
+      <%= form.label :image, "画像アップロード" %>
+      <%= form.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+
     <%= form.hidden_field :latitude, id: 'spot_latitude' %>
     <%= form.hidden_field :longitude, id: 'spot_longitude' %>
 
