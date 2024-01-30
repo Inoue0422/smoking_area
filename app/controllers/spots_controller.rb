@@ -34,6 +34,8 @@ class SpotsController < ApplicationController
   end
 
   def destroy
+    @spot.image.purge if @spot.image.attached?
+    @spot.user_spots.destroy_all
     @spot.destroy
     redirect_to spots_url, notice: '喫煙所が削除されました。'
   end
