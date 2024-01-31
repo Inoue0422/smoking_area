@@ -1,11 +1,11 @@
 <%= render "shared/header" %>
 
-<div class="container h-100" style="padding-bottom: 150px;">
+<div class="container h-100" style="padding-bottom: 100px;">
   <div class="row justify-content-center mt-5">
     <div class="col-md-8 text-center">
   <h2><%= @spot.name %></h2>
   <% if @spot.image.attached? %>
-    <%= image_tag @spot.image.variant(resize_to_limit: [400, 400]), class: "img-fluid" %>
+    <%= image_tag @spot.image.variant(resize_to_limit: [300, 300]), class: "img-fluid" %>
   <% end %>
   <p class="mt-5"><strong>タバコの種類:</strong> <%= TobaccoType.find_by(id: @spot.tobacco_id).name %></p>
   <p class="mt-5"><strong>囲い:</strong> <%= @spot.fence ? 'あり' : 'なし' %></p>
